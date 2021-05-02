@@ -28,8 +28,10 @@ Open up a browser and hit the localhost url to access the application
 ## Access monitoring/metrics, etc via Kiali
 Run
 ``` istioctl dashboard kiali ```
+
 To access Grafana
 ``` istioctl dashboard grafana ``à
+
 To access Prometheus
 ``` istioctl dashboard prometheus ```
 
