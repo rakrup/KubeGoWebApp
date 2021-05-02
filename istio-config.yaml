@@ -1,0 +1,40 @@
+# All the Istio based configuration being captured here.
+# Gateway defines the ingress point for any traffic into the cluster for the service
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: go-app-gateway
+  namespace: app-service
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+# Virtual Servive attached to the above gateway describing the routing to the service would take place
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: go-app-vservice
+  namespace: app-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - go-app-gateway
+  http:
+  - match:
+    - uri:
+        exact: /goapp
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        port:
+          number: 80
+        host: server-service

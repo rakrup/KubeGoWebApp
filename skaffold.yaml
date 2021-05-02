@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta14
+kind: Config
+metadata:
+  name: go-app
+build:
+  artifacts:
+  - image: go-app
+    docker:
+      dockerfile: Dockerfile
+test:
+  - image: go-app
+    custom:
+      - command: ./run_tests.sh
+        timeoutSeconds: 60
+        dependencies:
+          paths:
+          -  "*_test.go"
+          -  "run_tests.sh"
+deploy:
+  kubectl:
+    manifests:
+    - go-app-deployment.yaml
+    - istio-config.yaml
