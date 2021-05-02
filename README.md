@@ -14,10 +14,12 @@ To install the pre-requisites on the client machine
 
 *Run prerequisites* 
 ``` ./setup_tools.sh ```
+
 Above script setups up the platform and devtools - should install golangci-lint, skaffold and istio on the client machine and kubernetes cluster. 
 
 *Run skaffold* 
 ``` skaffold run ```
+
 Using Skaffold, this command would do the build/test/deploy of the application on to the cluster.
 
 ## Access the application
@@ -26,6 +28,10 @@ Open up a browser and hit the localhost url to access the application
 ## Access monitoring/metrics, etc via Kiali
 Run
 ``` istioctl dashboard kiali ```
+To access Grafana
+``` istioctl dashboard grafana ``à
+To access Prometheus
+``` istioctl dashboard prometheus ```
 
 ## Note
 The above commands have been testing on a Macintosh OS and works fine with Istio 1.9.4, Skaffold v1.23.0
