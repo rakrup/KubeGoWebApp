@@ -30,7 +30,7 @@ Run
 ``` istioctl dashboard kiali ```
 
 To access Grafana
-``` istioctl dashboard grafana ``à
+``` istioctl dashboard grafana ```
 
 To access Prometheus
 ``` istioctl dashboard prometheus ```
