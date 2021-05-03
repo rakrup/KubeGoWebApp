@@ -2,11 +2,13 @@ apiVersion: skaffold/v2beta14
 kind: Config
 metadata:
   name: go-app
+# Defining the build stage
 build:
   artifacts:
   - image: go-app
     docker:
       dockerfile: Dockerfile
+# Defining the test stage
 test:
   - image: go-app
     custom:
@@ -16,6 +18,7 @@ test:
           paths:
           -  "*_test.go"
           -  "run_tests.sh"
+# Defining the deployment stage
 deploy:
   kubectl:
     manifests:
