@@ -34,7 +34,7 @@ Using Skaffold, above mentioned command would do the build/test/deploy of the ap
 ## Access the application
 Open up a browser and hit the localhost url to access the application
 
-[http:localhost](http://localhost)
+[http:localhost](http://localhost/goapp)
 
 ---
 
