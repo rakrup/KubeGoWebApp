@@ -26,6 +26,8 @@ Now we are ready to build, run unit tests and deploy out application on to kuber
 
  ` skaffold run `
 
+ The *skaffold run* during the test phase will run the [run_test script](./run_test.sh). The static analysis and test coverage results will be stored in a report dir which would be generated on after running the skaffold command.   
+
 (Tip: can use skaffold dev to put a watch on the code, if there are any changes skaffold will automatically redeploy the application with the changes)
 Using Skaffold, above mentioned command would do the build/test/deploy of the application on to the cluster. One the deploy is complete your application should be up and running on the cluster. 
 
